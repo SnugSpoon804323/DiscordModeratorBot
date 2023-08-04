@@ -1,5 +1,6 @@
 package com.finni.discordmodbot.command;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
 import org.bukkit.permissions.Permission;
@@ -41,7 +42,6 @@ public class CustomConsoleSender implements CommandSender {
         List<String> queue = Arrays.stream(messages).toList();
         if (queue.size() > 0)
             sender.sendMessage(queue.toArray( new String[0] ));
-
     }
 
     @Override
@@ -68,6 +68,11 @@ public class CustomConsoleSender implements CommandSender {
     @Override
     public Spigot spigot() {
         return sender.spigot();
+    }
+
+    @Override
+    public @NotNull Component name() {
+        return sender.name();
     }
 
     @Override

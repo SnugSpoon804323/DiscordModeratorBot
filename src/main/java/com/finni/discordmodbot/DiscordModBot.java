@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import com.finni.discordmodbot.command.discord.slashcommand.SlashRestartTimes;
+import com.finni.discordmodbot.command.discord.slashcommand.SlashTPS;
 import net.essentialsx.api.v2.services.discord.MessageType;
 import net.essentialsx.api.v2.services.discordlink.DiscordLinkService;
 import org.bukkit.Bukkit;
@@ -37,7 +38,7 @@ import net.essentialsx.api.v2.services.discord.InteractionException;
 public class DiscordModBot extends JavaPlugin
 {
 
-	private static  DiscordModBot instance;
+	private static DiscordModBot instance;
 	private DiscordService discordService;
 	private DiscordLinkService discordLinkService;
 	private DiscordApi discordAPI;
@@ -171,6 +172,7 @@ public class DiscordModBot extends JavaPlugin
 
 			this.discordService.getInteractionController().registerCommand(new SlashPlayerList());
 			this.discordService.getInteractionController().registerCommand(new SlashRestartTimes());
+			this.discordService.getInteractionController().registerCommand(new SlashTPS());
 			this.logChannel = new MessageType("modlogs");
 			this.discordService.registerMessageType(this, this.logChannel);
 		} else {
